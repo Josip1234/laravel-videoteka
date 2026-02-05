@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('videoteka', function (Blueprint $table) {
-           $table->char("oib",11)->primary();
-           $table->string("naziv",50);
-           $table->string("adresa",100);
+        Schema::create('vrsta_cjenika', function (Blueprint $table) {
+                $table->increments("id_vrste_cjenika");
+                $table->string("naziv",50);
+                $table->text("opis");
         });
     }
 
@@ -23,8 +23,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-          Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('videoteka');
+             Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('vrsta_cijenika');
+          Schema::dropIfExists('vrsta_cjenika');
           Schema::enableForeignKeyConstraints();
     }
 };
