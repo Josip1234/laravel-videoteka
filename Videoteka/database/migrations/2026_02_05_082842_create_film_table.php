@@ -15,8 +15,8 @@ return new class extends Migration
            $table->increments("id_filma");
            $table->string("naziv",50);
            $table->integer("dostupneKolicine",false,false);
-           $table->integer("broj_medija",false,true);
-           $table->integer("broj_zanra",false,true);
+           $table->integer("broj_medija",false,true)->nullable();
+           $table->integer("broj_zanra",false,true)->nullable();
         });
     }
 

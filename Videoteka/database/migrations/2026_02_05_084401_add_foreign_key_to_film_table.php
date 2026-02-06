@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::table('film', function (Blueprint $table) {
             $table->dropColumn("broj_medija");
             $table->dropColumn("broj_zanra");
-            $table->integer("broj_medija",false,true);
-            $table->integer("broj_zanra",false,true);
-            $table->foreign("broj_medija","broj_medija_fk")->references("broj_medija")->on("medij")->cascadeOnUpdate()->noActionOnDelete();
+            $table->integer("broj_medija",false,true)->nullable();
+            $table->integer("broj_zanra",false,true)->nullable();
+            $table->foreign("broj_medija","broj_medija_fk")->references("broj_medija")->on("medij")->cascadeOnUpdate()->nullOnDelete();
         });
     }
 
