@@ -8,4 +8,5 @@ Route::get('/', function () {
 });
 Route::prefix('videoteka')->name('videoteka.')->controller(VideotekaController::class)->group(function(){
     Route::get('/index','getVideotekaIndex')->name('pocetna');
+     Route::get('/create','nova')->name('create');
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Videoteka;
+use Illuminate\View\View;
 
 class VideotekaController extends Controller
 {
@@ -24,5 +25,8 @@ class VideotekaController extends Controller
             'page'=>$page,
             'totalPages'=>$totalPages
     ]);
+    }
+    public function nova():View{
+        return view("videoteka.create");
     }
 }
