@@ -10,31 +10,31 @@
   <title>@yield('title','Sustav posudbe filmova')</title>
 </head>
 
-<body>
+<body class="bg-neutral-950 text-neutral-100">
   <header>
     @include('navigation.navigation')
   </header>
-  <div class="mx-auto max-w-md overflow-hidden  bg-white shadow-md md:max-w-2xl pt-6">
+  <div class="mx-auto max-w-md overflow-hidden  shadow-md md:max-w-2xl pt-6 bg-neutral-950 text-neutral-100">
     <div class="md:flex">
       <div>
-        <table class="table-auto md:table-fixed border-collapse border border-gray-400 border-separate md:border-separate">
-          <thead>
+        <table class="w-full text-sm text-left text-gray-300">
+          <thead class="bg-gray-800 text-gray-400 uppercase text-xs tracking-wider">
             <tr>
-              <th class="border border-gray-300">Oib</th>
-              <th class="border border-gray-300">Naziv</th>
-              <th class="border border-gray-300">Adresa</th>
+              <th class="px-6 py-4 text-center">Oib</th>
+              <th class="px-6 py-4 text-center">Naziv</th>
+              <th class="px-6 py-4 text-center">Adresa</th>
               <!-- kod akcija ćemo dodati i prijava, napraviti ćemo kasnije middleware koji provjerava za modele dali postoji session
  prijava videoteke ak one postoji vratiti će se na videoteka index sa errorom -->
-              <th class="border border-gray-300">Akcije</th>
+              <th class="px-6 py-4 text-center">Akcije</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="divide-y divide-gray-800">
             @foreach($videoteka as $vid)
-            <tr>
-              <td class="border border-gray-300">{{ $vid->oib }}</td>
-              <td class="border border-gray-300">{{ $vid->naziv }}</td>
-              <td class="border border-gray-300">{{ $vid->adresa }}</td>
-              <td class="border border-gray-300">
+            <tr class="hover:bg-gray-800/60 transition duration-200">
+              <td class=class="px-6 py-4 font-medium text-white">{{ $vid->oib }}</td>
+              <td class="px-6 py-4 font-medium text-white">{{ $vid->naziv }}</td>
+              <td class="px-6 py-4 font-medium text-white">{{ $vid->adresa }}</td>
+              <td class="px-6 py-4 font-medium text-white">
                 Prijava
                 Uređivanje
                 Brisanje

@@ -8,7 +8,7 @@
     @vite('resources/css/app.css')
     <title>@yield('title','Sustav posudbe filmova')</title>
 </head>
-<body>
+<body class="bg-neutral-950 text-neutral-100">
     <header>
         @include('navigation.navigation')
     </header>
