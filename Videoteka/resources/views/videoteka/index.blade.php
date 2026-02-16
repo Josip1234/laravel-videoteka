@@ -16,6 +16,11 @@
   </header>
   <div class="mx-auto max-w-md overflow-hidden  shadow-md md:max-w-2xl pt-6 bg-neutral-950 text-neutral-100">
     <div class="md:flex">
+      @if(session('status'))
+      <div class="mb-4 rounded bg-green-50 p-3 text-green-700">
+        {{ session('status') }}
+      </div>
+      @endif
       <div>
         <table class="w-full text-sm text-left text-gray-300">
           <thead class="bg-gray-800 text-gray-400 uppercase text-xs tracking-wider">

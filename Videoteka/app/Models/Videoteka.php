@@ -15,10 +15,12 @@ class Videoteka extends Model
     ];
 
 
-    /*protected function casts(): array
+    protected function casts(): array
     {
         return [
-            ''=>''
+            'oib'=>'string',
+            'naziv'=>'string',
+            'adresa'=>'string'
         ];
-    }*/
+    }
 }

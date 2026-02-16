@@ -29,4 +29,13 @@ class VideotekaController extends Controller
     public function nova():View{
         return view("videoteka.create");
     }
+    public function spremi(Request $request){
+        $validated=$request->validate([
+            'oib'=>['required','string','digits_between:11,11'],
+            'naziv'=>['required','string','max:50'],
+            'adresa'=>['required','string','max:100'],
+        ]);
+        Videoteka::create($validated);
+        return redirect()->route('videoteka.pocetna')->with('status','Dodana nova videoteka.');
+    }
 }
