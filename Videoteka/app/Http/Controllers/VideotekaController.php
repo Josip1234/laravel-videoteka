@@ -38,4 +38,8 @@ class VideotekaController extends Controller
         Videoteka::create($validated);
         return redirect()->route('videoteka.pocetna')->with('status','Dodana nova videoteka.');
     }
+    public function obrisi(Videoteka $videoteka){
+        $videoteka->delete();
+        return redirect()->route('videoteka.pocetna')->with('status','Videoteka uspješno izbrisana');
+    }
 }

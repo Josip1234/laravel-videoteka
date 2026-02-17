@@ -16,11 +16,7 @@
   </header>
   <div class="mx-auto max-w-md overflow-hidden  shadow-md md:max-w-2xl pt-6 bg-neutral-950 text-neutral-100">
     <div class="md:flex">
-      @if(session('status'))
-      <div class="mb-4 rounded bg-green-50 p-3 text-green-700">
-        {{ session('status') }}
-      </div>
-      @endif
+    
       <div>
         <table class="w-full text-sm text-left text-gray-300">
           <thead class="bg-gray-800 text-gray-400 uppercase text-xs tracking-wider">
@@ -42,24 +38,41 @@
               <td class="px-6 py-4 font-medium text-white">
                 Prijava
                 Uređivanje
-                Brisanje
+                <form method="POST" action="{{ route('videoteka.brisanje',$vid) }}" 
+                onsubmit="return confirm('Obrisati videoteku?');">
+                @csrf 
+                @method('DELETE')
+<button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2
+ rounded-lg transition duration-200 shadow-lg"><i class="bi bi-trash icon-delete"></i></button>
+
+              </form>
               </td>
             </tr>
             @endforeach
           </tbody>
           <tfoot>
             <tr>
-              <th>
+              <td>
                 <a href="{{route('videoteka.create')}}"
                   class="text-grey-600 hover:none buttonadd">
                    <i class="bi bi-plus-square"></i>
                    <i class="bi bi-shop"></i>
                 </a>
 
-            </tr>
+            </td>
+<!-- napraviti middleware koji će provjeravati broj videoteka u tablici 
+ ako nema niti jedna videoteka, napraviti će sesiju i ispisati u view videoteka index 
+ da nema videoteka u listi da se napravi novi zapis i to će biti umjesto ispisa tablice 
+ i ispisati će se link za novu videoteku. -->
           </tfoot>
         </table>
-
+            @if(session('status'))
+              
+      <div class="mb-4 rounded bg-green-50 p-3 text-green-700">
+        {{ session('status') }}
+      </div>
+              
+      @endif
         @if ($totalPages > 1)
         <div class="pager">
 
