@@ -37,13 +37,12 @@
               <td class="px-6 py-4 font-medium text-white">{{ $vid->adresa }}</td>
               <td class="px-6 py-4 font-medium text-white">
                 Prijava
-                Uređivanje
+                <a href="{{route('videoteka.uredi',$vid)}}"><i class="bi bi-pencil icon-edit"></i></a>
                 <form method="POST" action="{{ route('videoteka.brisanje',$vid) }}" 
                 onsubmit="return confirm('Obrisati videoteku?');">
                 @csrf 
                 @method('DELETE')
-<button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2
- rounded-lg transition duration-200 shadow-lg"><i class="bi bi-trash icon-delete"></i></button>
+<button type="submit"><i class="bi bi-trash icon-delete"></i></button>
 
               </form>
               </td>

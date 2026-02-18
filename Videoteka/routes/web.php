@@ -11,4 +11,6 @@ Route::prefix('videoteka')->name('videoteka.')->controller(VideotekaController::
      Route::get('/create','nova')->name('create');
      Route::post('/','spremi')->name('novi');
      Route::delete('/{videoteka}','obrisi')->name('brisanje');
+     Route::get('/{videoteka}/edit','uredi')->name('uredi');
+     Route::put('/{videoteka}','update')->name('azuriraj');
 });
