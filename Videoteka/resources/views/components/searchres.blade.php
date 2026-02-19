@@ -1,23 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="/css/style.css">
-  @vite('resources/css/app.css')
-  <title>@yield('title','Sustav posudbe filmova')</title>
-</head>
-
-<body class="bg-neutral-950 text-neutral-100">
-  <header>
-    @include('navigation.navigation')
-  </header>
-  @include("components.search")
-  @isset($_GET["videoteka"])
-     @include("components.searchres")
-  @else
+@section('rezultati')
+@if($videoteka->isEmpty())
+<p class="text-gray-600">
+    Nema rezultata za traženi pojam.
+</p>
+@else
   <div class="mx-auto max-w-md overflow-hidden  shadow-md md:max-w-2xl pt-6 bg-neutral-950 text-neutral-100">
     <div class="md:flex">
     
@@ -28,8 +14,6 @@
               <th class="px-6 py-4 text-center">Oib</th>
               <th class="px-6 py-4 text-center">Naziv</th>
               <th class="px-6 py-4 text-center">Adresa</th>
-              <!-- kod akcija ćemo dodati i prijava, napraviti ćemo kasnije middleware koji provjerava za modele dali postoji session
- prijava videoteke ak one postoji vratiti će se na videoteka index sa errorom -->
               <th class="px-6 py-4 text-center">Akcije</th>
             </tr>
           </thead>
@@ -64,10 +48,6 @@
                 </a>
 
             </td>
-<!-- napraviti middleware koji će provjeravati broj videoteka u tablici 
- ako nema niti jedna videoteka, napraviti će sesiju i ispisati u view videoteka index 
- da nema videoteka u listi da se napravi novi zapis i to će biti umjesto ispisa tablice 
- i ispisati će se link za novu videoteku. -->
           </tfoot>
         </table>
             @if(session('status'))
@@ -109,7 +89,6 @@
   </div>
 
   @endif
-  @endisset
-</body>
+@endif
 
-</html>
+

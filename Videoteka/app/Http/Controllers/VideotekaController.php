@@ -10,6 +10,15 @@ class VideotekaController extends Controller
 {
     public function getVideotekaIndex(Request $request)
     {
+        //ako postoji varijabla videoteka i ako je postavljena i različita od nule
+        if(isset($_GET["videoteka"])){
+            $query=$request->input('videoteka');
+        $pronadjenjo=Videoteka::when($query,function($q) use ($query){
+            $q->where('naziv','like','%'.$query.'%');
+        })->orderBy('oib')->get();
+        }
+        
+
         $perPage = 5;
 
         // trenutna stranica (default 1)
@@ -21,11 +30,22 @@ class VideotekaController extends Controller
         $ukupnoZapisa = Videoteka::orderBy('oib')->count();
         $videoteka = Videoteka::orderBy('oib')->limit($perPage)->offset($offset)->get();
         $totalPages = (int)ceil($ukupnoZapisa / $perPage);
+
+        if(isset($_GET["videoteka"])){
+            
         return view('videoteka.index', [
+            'videoteka' => $pronadjenjo,
+            'page' => $page,
+            'totalPages' => $totalPages,
+            'query'=>$query
+        ]);
+        }else{
+         return view('videoteka.index', [
             'videoteka' => $videoteka,
             'page' => $page,
-            'totalPages' => $totalPages
-        ]);
+            'totalPages' => $totalPages,
+         ]);
+        }
     }
     public function nova(): View
     {
