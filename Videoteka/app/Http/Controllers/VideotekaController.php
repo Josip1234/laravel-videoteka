@@ -10,12 +10,19 @@ class VideotekaController extends Controller
 {
     public function getVideotekaIndex(Request $request)
     {
+        //primi get url za sortiranje prema nazivu datoteke 
+        $sort=$request->input('sort');
+        //ako je varijabla prazna sortiraju se uzlazno od a do z
+        if(empty($sort)){
+            $sort="asc";
+        }
         //ako postoji varijabla videoteka i ako je postavljena i različita od nule
+        //alternativa $input=Input::get('videoteka') to ćemo ažurirati
         if(isset($_GET["videoteka"])){
             $query=$request->input('videoteka');
         $pronadjenjo=Videoteka::when($query,function($q) use ($query){
             $q->where('naziv','like','%'.$query.'%');
-        })->orderBy('oib')->get();
+        })->orderBy('naziv',$sort)->get();
         }
         
 
@@ -27,8 +34,8 @@ class VideotekaController extends Controller
         // OFFSET = (page - 1) * 5
         $offset = ($page - 1) * $perPage;
 
-        $ukupnoZapisa = Videoteka::orderBy('oib')->count();
-        $videoteka = Videoteka::orderBy('oib')->limit($perPage)->offset($offset)->get();
+        $ukupnoZapisa = Videoteka::orderBy('naziv',$sort)->count();
+        $videoteka = Videoteka::orderBy('naziv',$sort)->limit($perPage)->offset($offset)->get();
         $totalPages = (int)ceil($ukupnoZapisa / $perPage);
 
         if(isset($_GET["videoteka"])){

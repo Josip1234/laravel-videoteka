@@ -48,6 +48,14 @@
                 </a>
 
             </td>
+              <td><a href="?sort=asc"><i class="bi bi-sort-alpha-up"></i>
+                  Sortiraj uzlazno</a>
+
+              </td>
+              <td>
+                <a href="?sort=dsc"><i class="bi bi-sort-alpha-down"></i>
+                  Sortiraj silazno</a>
+              </td>
           </tfoot>
         </table>
             @if(session('status'))
