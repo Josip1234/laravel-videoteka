@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
 
       
          $this->call([
-            VideotekaSeeder::class
+            VideotekaSeeder::class,
+            VisestrukiUnosVideotekaSeeder::class
         ]);
     }
 }

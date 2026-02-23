@@ -44,7 +44,7 @@ class VideotekaController extends Controller
             'videoteka' => $pronadjenjo,
             'page' => $page,
             'totalPages' => $totalPages,
-            'query'=>$query
+            'query'=>$query,
         ]);
         }else{
          return view('videoteka.index', [

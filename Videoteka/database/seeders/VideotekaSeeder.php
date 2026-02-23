@@ -14,7 +14,7 @@ class VideotekaSeeder extends Seeder
      */
     public function run(): void
     {
-         $faker=Faker::create();
+         $faker=Faker::create("hr_HR");
         $randomDigit=self::create_random_digit(0,11);
       
         Videoteka::updateOrCreate([

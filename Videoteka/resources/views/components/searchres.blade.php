@@ -48,12 +48,12 @@
                 </a>
 
             </td>
-              <td><a href="?sort=asc"><i class="bi bi-sort-alpha-up"></i>
+              <td><a href="?sort=asc&videoteka={{$query}}&page={{$page}}"><i class="bi bi-sort-alpha-up"></i>
                   Sortiraj uzlazno</a>
 
               </td>
               <td>
-                <a href="?sort=dsc"><i class="bi bi-sort-alpha-down"></i>
+                <a href="?sort=desc&videoteka={{$query}}&page={{$page}}"><i class="bi bi-sort-alpha-down"></i>
                   Sortiraj silazno</a>
               </td>
           </tfoot>
@@ -98,5 +98,6 @@
 
   @endif
 @endif
+
 
 
