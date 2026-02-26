@@ -64,14 +64,7 @@
                 </a>
 
               </td>
-              <td><a href="?sort=asc"><i class="bi bi-sort-alpha-up"></i>
-                  Sortiraj uzlazno</a>
-
-              </td>
-              <td>
-                <a href="?sort=desc"><i class="bi bi-sort-alpha-down"></i>
-                  Sortiraj silazno</a>
-              </td>
+  
               <!-- napraviti middleware koji će provjeravati broj videoteka u tablici 
  ako nema niti jedna videoteka, napraviti će sesiju i ispisati u view videoteka index 
  da nema videoteka u listi da se napravi novi zapis i to će biti umjesto ispisa tablice 

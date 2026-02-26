@@ -48,12 +48,12 @@
                 </a>
 
             </td>
-              <td><a href="?sort=asc&videoteka={{$query}}&page={{$page}}"><i class="bi bi-sort-alpha-up"></i>
+              <td><a href="?sort=asc&videoteka={{$query}}"><i class="bi bi-sort-alpha-up"></i>
                   Sortiraj uzlazno</a>
 
               </td>
               <td>
-                <a href="?sort=desc&videoteka={{$query}}&page={{$page}}"><i class="bi bi-sort-alpha-down"></i>
+                <a href="?sort=desc&videoteka={{$query}}"><i class="bi bi-sort-alpha-down"></i>
                   Sortiraj silazno</a>
               </td>
           </tfoot>
@@ -65,39 +65,13 @@
       </div>
               
       @endif
-        @if ($totalPages > 1)
-        <div class="pager">
-
-          {{-- Previous --}}
-          @if ($page > 1)
-          <a href="?page={{ $page - 1 }}">&lt;</a>
-          @else
-          <span class="disabled">&lt;</span>
-          @endif
-
-          {{-- Page numbers --}}
-          @for ($i = 1; $i <= $totalPages; $i++)
-            @if ($i==$page)
-            <span class="active">{{ $i }}</span>
-            @else
-            <a href="?page={{ $i }}">{{ $i }}</a>
-            @endif
-            @endfor
-
-            {{-- Next --}}
-            @if ($page < $totalPages)
-              <a href="?page={{ $page + 1 }}">&gt;</a>
-              @else
-              <span class="disabled">&gt;</span>
-              @endif
-
-        </div>
+    
       </div>
     </div>
   </div>
 
   @endif
-@endif
+
 
 
 
