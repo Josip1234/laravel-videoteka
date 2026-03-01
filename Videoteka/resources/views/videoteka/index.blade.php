@@ -66,9 +66,8 @@
               </td>
   
               <!-- napraviti middleware koji će provjeravati broj videoteka u tablici 
- ako nema niti jedna videoteka, napraviti će sesiju i ispisati u view videoteka index 
- da nema videoteka u listi da se napravi novi zapis i to će biti umjesto ispisa tablice 
- i ispisati će se link za novu videoteku. -->
+ ako nema niti jedna videoteka, i ispisati u view videoteka index 
+ da nema videoteka u listi da se napravi novi zapis -->
           </tfoot>
         </table>
         @if(session('status'))

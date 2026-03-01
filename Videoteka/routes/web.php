@@ -7,7 +7,7 @@ Route::get('/', function () {
     return view('pocetna');
 });
 Route::prefix('videoteka')->name('videoteka.')->controller(VideotekaController::class)->group(function(){
-    Route::get('/index','getVideotekaIndex')->name('pocetna');
+    Route::get('/index','getVideotekaIndex')->name('pocetna')->middleware("broj.videoteka");
      Route::get('/create','nova')->name('create');
      Route::post('/','spremi')->name('novi');
      Route::delete('/{videoteka}','obrisi')->name('brisanje');
