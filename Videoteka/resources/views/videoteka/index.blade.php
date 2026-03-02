@@ -65,11 +65,10 @@
 
               </td>
   
-              <!-- napraviti middleware koji će provjeravati broj videoteka u tablici 
- ako nema niti jedna videoteka, i ispisati u view videoteka index 
- da nema videoteka u listi da se napravi novi zapis -->
+     
           </tfoot>
         </table>
+      
         @if(session('status'))
 
         <div class="mb-4 rounded bg-green-50 p-3 text-green-700">

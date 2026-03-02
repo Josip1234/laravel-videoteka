@@ -17,6 +17,9 @@
     <div class="flex items-center">
       <h2 class="text-2xl font-bold text-white mb-6 text-center">Unos nove videoteke</h2>
     </div>
+      @if(session('poruka'))
+          @include("components.dodavanje_videoteke_poruka")
+        @endif 
     <div class="flex items-center justify-center">
           
       <form method="post" class="space-y-5" action="{{ route('videoteka.novi') }}">

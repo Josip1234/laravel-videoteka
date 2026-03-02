@@ -19,8 +19,9 @@ class ProvjeriBrojVideoteka
         $brojVideoteka=Videoteka::selectRaw('COUNT(*) as ukupno')->get();
         $broj=$brojVideoteka[0]["ukupno"];
         //ako nema videoteke redirektaj na kreiranje nove 
+        //vraća se redirect sa session porukom da se doda nova videoteka
         if($broj==0){
-            return redirect()->route("videoteka.create");
+            return redirect()->route("videoteka.create")->with('poruka',"Ne postoji niti jedna videoteka. Dodaj novu videoteku.");
         }
         return $next($request);
     }
