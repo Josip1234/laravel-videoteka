@@ -17,12 +17,13 @@ class Videoteka extends Model
     ];
 
 
-    protected function casts(): array
-    {
-        return [
+     protected $casts = [
             'oib'=>'string',
             'naziv'=>'string',
             'adresa'=>'string'
         ];
-    }
+    //videoteka ima više članskih iskaznica
+   public function clanske_iskaznice(){
+        return $this->hasMany(ClanskaIskaznica::class);
+   }
 }

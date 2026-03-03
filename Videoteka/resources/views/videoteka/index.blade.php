@@ -28,8 +28,6 @@
               <th class="px-6 py-4 text-center">Oib</th>
               <th class="px-6 py-4 text-center">Naziv</th>
               <th class="px-6 py-4 text-center">Adresa</th>
-              <!-- kod akcija ćemo dodati i prijava, napraviti ćemo kasnije middleware koji provjerava za modele dali postoji session
- prijava videoteke ak one postoji vratiti će se na videoteka index sa errorom -->
               <th class="px-6 py-4 text-center">Akcije</th>
             </tr>
           </thead>
@@ -41,7 +39,7 @@
               <td class="px-6 py-4 font-medium text-white">{{ $vid->naziv }}</td>
               <td class="px-6 py-4 font-medium text-white">{{ $vid->adresa }}</td>
               <td class="px-6 py-4 font-medium text-white">
-                Prijava
+                <a href="{{ route('clanska_iskaznica.pocetna') }}"><i class="bi bi-link"></i></a>
                 <a href="{{route('videoteka.uredi',$vid)}}"><i class="bi bi-pencil icon-edit"></i></a>
                 <form method="POST" action="{{ route('videoteka.brisanje',$vid) }}"
                   onsubmit="return confirm('Obrisati videoteku?');">
