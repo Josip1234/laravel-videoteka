@@ -22,6 +22,7 @@
     <div class="md:flex">
 
       <div>
+        
         <table class="w-full text-sm text-left text-gray-300">
           <thead class="bg-gray-800 text-gray-400 uppercase text-xs tracking-wider">
             <tr>
@@ -39,7 +40,7 @@
               <td class="px-6 py-4 font-medium text-white">{{ $vid->naziv }}</td>
               <td class="px-6 py-4 font-medium text-white">{{ $vid->adresa }}</td>
               <td class="px-6 py-4 font-medium text-white">
-                <a href="{{ route('clanska_iskaznica.pocetna') }}"><i class="bi bi-link"></i></a>
+                <a href="{{ route('clanska_iskaznica.pocetna',$vid) }}"><i class="bi bi-link"></i></a>
                 <a href="{{route('videoteka.uredi',$vid)}}"><i class="bi bi-pencil icon-edit"></i></a>
                 <form method="POST" action="{{ route('videoteka.brisanje',$vid) }}"
                   onsubmit="return confirm('Obrisati videoteku?');">

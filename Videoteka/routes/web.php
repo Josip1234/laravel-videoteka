@@ -17,5 +17,5 @@ Route::prefix('videoteka')->name('videoteka.')->controller(VideotekaController::
 });
 //sljedeća grupa ruta su za tablicu članskih iskaznica
 Route::prefix('clanska_iskaznica')->name('clanska_iskaznica.')->controller(ClanskaIskaznicaController::class)->group(function(){
-    Route::get('/index','getClanskaIndex')->name('pocetna');
+    Route::get('{videoteka}/index','getClanskaIndex')->name('pocetna');
 });

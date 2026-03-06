@@ -12,8 +12,11 @@
 
 <body class="bg-neutral-950 text-neutral-100">
   <header>
-    @include('navigation.navigation')
+    @include('clanska_iskaznica.navigation.navigation')
+    
   </header>
+
+  @include('clanska_iskaznica.components.ispis')
 
 </body>
 
