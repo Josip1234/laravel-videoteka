@@ -27,4 +27,8 @@ class ClanskaIskaznica extends Model
     public function videoteke(){
         return $this->belongsTo(Videoteka::class,'oib_videoteke');
     }
+    //jedna članska iskaznica treba pripadati jednom članu u jednoj videoteci
+    public function clan(){
+        return $this->belongsTo(Clan::class);
+    }
 }
