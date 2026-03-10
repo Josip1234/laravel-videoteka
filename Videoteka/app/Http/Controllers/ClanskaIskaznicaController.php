@@ -31,8 +31,13 @@ class ClanskaIskaznicaController extends Controller
         //onih koji su već članovi u toj videoteci
         //query ispiši sve članove koji nisu jednaki tom oibu videoteke
         //SELECT c.oib FROM clanska_iskaznica cl right join clan c on cl.oib_clana=c.oib where cl.oib_videoteke != '14256985555'
+        //možda bi trebali ukloniti datum ispisivanja biti će jednostavnije da 
+        //se ukloni član te videoteke iz zapisa učlanjenih. 
+        //nećemo spremati history tko je bio upisan u videoteci 
+        //trebam maknuti i unique key 
         $clanovi=ClanskaIskaznica::rightjoin('clan','clanska_iskaznica.oib_clana','=','clan.oib')
-             ->select('clan.oib','clan.ime','clan.prezime')->where('oib_videoteke','=',null)->get();
+             ->select('clan.oib','clan.ime','clan.prezime')->where('oib_videoteke','!=',$videoteka->oib) 
+            ->get();
         return view('clanska_iskaznica.create',[
             "videoteka"=>$videoteka,
             "naziv"=>$videoteka->naziv,
@@ -49,5 +54,12 @@ class ClanskaIskaznicaController extends Controller
             ]);
             ClanskaIskaznica::create($validated);
             return redirect()->route("clanska_iskaznica.pocetna",$videoteka)->with('status','Novi član uspješno dodan.');
+    }
+    public function azuriranje(Request $request, Videoteka $videoteka, ClanskaIskaznica $clanska_iskaznica){
+        return view("clanska_iskaznica.edit",[
+            "naziv"=>$videoteka->naziv,
+            "videoteka"=>$videoteka,
+            "clanovi"=>$clanska_iskaznica
+        ]);
     }
 }

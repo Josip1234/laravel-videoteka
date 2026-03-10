@@ -19,7 +19,8 @@
                         <td class="px-6 py-4 font-medium text-white">{{ $clan->oib_clana }}</td>
                         <td class="px-6 py-4 font-medium text-white">{{ $clan->datum_uclanjenja->format("d.m.Y") }}</td>
                         <td class="px-6 py-4 font-medium text-white">
-                            <a href="">Ažuriranje člana</a>
+                            <a href="{{ route('clanska_iskaznica.azuriraj',[$videoteka,$clan]) }}"><i class="bi bi-person"><i class="bi bi-pencil-square"></i></i>
+</a></a>
                             <button>Ispisivanje člana</button>
                         </td>
                         </tr>
@@ -28,7 +29,7 @@
                 <tfoot>
                     <tr>
                         <td>
-                            <a href="{{ route('clanska_iskaznica.noviClan',$videoteka) }}">Dodaj novog člana</a>
+                            <a href="{{ route('clanska_iskaznica.noviClan',$videoteka) }}"><i class="bi bi-person-add"></i></a>
                         </td>
                     </tr>
                 </tfoot>

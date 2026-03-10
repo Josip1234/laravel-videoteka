@@ -20,4 +20,5 @@ Route::prefix('clanska_iskaznica')->name('clanska_iskaznica.')->controller(Clans
     Route::get('{videoteka}/index','getClanskaIndex')->name('pocetna');
     Route::get('{videoteka}/create','novi_clan')->name('noviClan');
     Route::post('{videoteka}/save','spremi')->name('novi');
+    Route::get('{videoteka}/{clanska_iskaznica}/edit','azuriranje')->name('azuriraj');
 });
