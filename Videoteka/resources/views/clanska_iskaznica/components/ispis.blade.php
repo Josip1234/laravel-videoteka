@@ -21,7 +21,11 @@
                         <td class="px-6 py-4 font-medium text-white">
                             <a href="{{ route('clanska_iskaznica.azuriraj',[$videoteka,$clan]) }}"><i class="bi bi-person"><i class="bi bi-pencil-square"></i></i>
 </a></a>
-                            <button>Ispisivanje člana</button>
+                             <form action="{{ route("clanska_iskaznica.ispisivanje",[$videoteka,$clan]) }}" method="post" onsubmit="return confirm('Ispisati člana?');">
+                                @csrf
+                                @method('delete')
+                                <button type="submit"  ><i class="bi bi-trash icon-delete"></i></button>
+                             </form>
                         </td>
                         </tr>
                     @endforeach

@@ -22,4 +22,5 @@ Route::prefix('clanska_iskaznica')->name('clanska_iskaznica.')->controller(Clans
     Route::post('{videoteka}/save','spremi')->name('novi');
     Route::get('{videoteka}/{clanska_iskaznica}/edit','azuriranje')->name('azuriraj'); 
     Route::put('{videoteka}/{clanska_iskaznica}/update','azuriraj')->name('azuriranje');
+    Route::delete('{videoteka}/{clanska_iskaznica}/delete','izbrisi_clana')->name('ispisivanje');
 });

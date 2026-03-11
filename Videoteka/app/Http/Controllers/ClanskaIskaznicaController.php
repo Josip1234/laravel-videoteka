@@ -68,5 +68,9 @@ class ClanskaIskaznicaController extends Controller
         ]);
         $clanska_iskaznica->update($validated);
         return redirect()->route("clanska_iskaznica.pocetna",$videoteka)->with('status','Član uspješno ažuriran');
+    } 
+    public function izbrisi_clana(Request $request,Videoteka $videoteka,ClanskaIskaznica $clanska_iskaznica){
+        $clanska_iskaznica->delete();
+        return redirect()->route("clanska_iskaznica.pocetna",$videoteka)->with('status',"Korisnik uspješno iščlanjen iz videoteke.");
     }
 }
