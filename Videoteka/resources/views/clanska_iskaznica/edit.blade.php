@@ -15,11 +15,11 @@
     </header>
     <div class="flex items-center">
         <h2 class="text-2xl font-bold text-white mb-6 text-center">
-            Upis novog člana 
+            Ažuriranje člana 
         </h2>
     </div>
     <div class="flex items-center justify-center">
-                <form method="post" class="space-y-5" action="">
+                <form method="post" class="space-y-5" action="{{ route('clanska_iskaznica.azuriranje',[$videoteka,$clanovi]) }}">
                    
          @csrf
          @method('PUT')

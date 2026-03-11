@@ -59,4 +59,14 @@ class ClanskaIskaznicaController extends Controller
             "clanovi"=>$clanska_iskaznica
         ]);
     }
+    public function azuriraj(Request $request, Videoteka $videoteka, ClanskaIskaznica $clanska_iskaznica){
+        $validated=$request->validate([
+            'broj_iskaznice'=>['required','string','max:20'],
+                'oib_videoteke'=>['required','string','min:11','max:11','digits_between:11,11'],
+                'oib_clana'=>['required','string','min:11','max:11','digits_between:11,11'],
+                'datum_uclanjenja'=>['required','date'],
+        ]);
+        $clanska_iskaznica->update($validated);
+        return redirect()->route("clanska_iskaznica.pocetna",$videoteka)->with('status','Član uspješno ažuriran');
+    }
 }

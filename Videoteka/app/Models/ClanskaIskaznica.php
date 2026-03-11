@@ -13,15 +13,13 @@ class ClanskaIskaznica extends Model
         "broj_iskaznice",
         "oib_videoteke",
         "oib_clana",
-        "datum_uclanjenja",
-        "datum_isclanjenja"
+        "datum_uclanjenja"
     ];
     protected $casts = [
         "broj_iskaznice"=>"string",
         "oib_videoteke"=>"string",
         "oib_clana"=>"string",
-        "datum_uclanjenja"=>"date",
-        "datum_isclanjenja"=>"date"
+        "datum_uclanjenja"=>"date"
     ];
     //1 članska iskaznica pripada jednoj videoteci
     public function videoteke(){
