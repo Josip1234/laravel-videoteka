@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('clanska_iskaznica', function (Blueprint $table) {
            $table->string("broj_iskaznice",20)->primary();
            $table->char("oib_videoteke",11);
-           $table->char("oib_clana",11)->unique("oib_cl_uk");
+           //da ne kvarimo strukturu ostavit ćemo _uk iako nije uk
+           $table->char("oib_clana",11)->index("oib_cl_uk");
            $table->foreign("oib_videoteke")->references('oib')->on("videoteka")->cascadeOnDelete()->cascadeOnUpdate();
           $table->foreign("oib_clana")->references('oib')->on("clan")->cascadeOnDelete()->cascadeOnUpdate();
         });

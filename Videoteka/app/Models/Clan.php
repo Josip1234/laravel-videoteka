@@ -8,6 +8,7 @@ class Clan extends Model
 {
     protected $table='clan';
     protected $primaryKey = 'oib';
+    public $timestamps = false;
     protected $fillable = [
         'oib',
         'ime',
