@@ -40,7 +40,7 @@
             <p class="text-red-600 text-sm">{{ $message }}</p>
          @enderror 
          <!-- random broj pa ime videoteke i opet random broj da bude unique -->
-         <input type="hidden" name="broj_iskaznice" value="@php $var=str_replace(" ","",rand(1,999999).$videoteka->naziv.rand(1,26)) @endphp {{ $var }}">
+         <input type="hidden" name="broj_iskaznice" value="@php $var=str_replace(" ","",rand(1,999999).rand(1,10)) @endphp {{ $var }}">
         <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-lg transition duration-200 shadow-lg">Upiši novog člana</button>
       </form>
     </div>
