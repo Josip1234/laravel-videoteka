@@ -25,7 +25,9 @@
                                 @csrf
                                 @method('delete')
                                 <button type="submit"  ><i class="bi bi-trash icon-delete"></i></button>
-                             </form>
+                             </form> 
+                             <a href=""><i class="bi bi-person-vcard"></i>
+Detalji korisnika</a>
                         </td>
                         </tr>
                     @endforeach

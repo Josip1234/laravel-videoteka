@@ -13,7 +13,6 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'broj.videoteka'=>\App\Http\Middleware\ProvjeriBrojVideoteka::class,
-            'jedinstveni.clan'=> \App\Http\Middleware\ProvjeriJedinstvenogClanaZaPojedinuVideoteku::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

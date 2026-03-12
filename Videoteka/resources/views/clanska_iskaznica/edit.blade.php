@@ -17,6 +17,7 @@
         <h2 class="text-2xl font-bold text-white mb-6 text-center">
             Ažuriranje člana 
         </h2>
+        
     </div>
     <div class="flex items-center justify-center">
                 <form method="post" class="space-y-5" action="{{ route('clanska_iskaznica.azuriranje',[$videoteka,$clanovi]) }}">
@@ -47,9 +48,11 @@
 
 
        
-    
+                       <a href=""><i class="bi bi-person-vcard"></i>
+Detalji korisnika</a>
         <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-lg transition duration-200 shadow-lg">Ažuriraj člana videoteke</button>
       </form>
+      
     </div>
    
  
