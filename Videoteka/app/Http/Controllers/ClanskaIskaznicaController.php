@@ -36,6 +36,7 @@ class ClanskaIskaznicaController extends Controller
         $clanovi=ClanskaIskaznica::rightjoin('clan','clanska_iskaznica.oib_clana','=','clan.oib')
              ->select('clan.oib','clan.ime','clan.prezime')->where('oib_videoteke','!=',$videoteka->oib) 
             ->get();
+            
         return view('clanska_iskaznica.create',[
             "videoteka"=>$videoteka,
             "naziv"=>$videoteka->naziv,

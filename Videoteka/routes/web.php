@@ -19,7 +19,8 @@ Route::prefix('videoteka')->name('videoteka.')->controller(VideotekaController::
 Route::prefix('clanska_iskaznica')->name('clanska_iskaznica.')->controller(ClanskaIskaznicaController::class)->group(function(){
     Route::get('{videoteka}/index','getClanskaIndex')->name('pocetna');
     Route::get('{videoteka}/create','novi_clan')->name('noviClan');
-    Route::post('{videoteka}/save','spremi')->name('novi');
+    //kod posta će se provjeravati jedinstvenog člana ako postoji neće se izvršiti
+    Route::post('{videoteka}/save','spremi')->name('novi')->middleware("jedinstveni.clan");
     Route::get('{videoteka}/{clanska_iskaznica}/edit','azuriranje')->name('azuriraj'); 
     Route::put('{videoteka}/{clanska_iskaznica}/update','azuriraj')->name('azuriranje');
     Route::delete('{videoteka}/{clanska_iskaznica}/delete','izbrisi_clana')->name('ispisivanje');
