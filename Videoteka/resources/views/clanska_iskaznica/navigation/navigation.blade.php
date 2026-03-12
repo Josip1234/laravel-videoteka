@@ -8,7 +8,8 @@
           <div class="flex space-x-4">
               <p class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5">  <p class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Videoteka: {{ $naziv }}</p>
             <a href="{{route('videoteka.pocetna')}}" aria-current="page" class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Početna stranica videoteke</a>
-       
+           <a href="{{route('clanska_iskaznica.pocetna',$videoteka)}}" aria-current="page" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Početna stranica videoteke {{ $naziv }}</a>
+                      <a href="{{route('clan.pocetna',$videoteka)}}" aria-current="page" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Početna stranica članova za videoteku {{ $naziv }}</a>
           </div>
         </div>
       </div>
@@ -19,7 +20,8 @@
     <div class="space-y-1 px-2 pt-2 pb-3">
       <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
                   <a href="{{route('videoteka.pocetna')}}" aria-current="page" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Početna stranica videoteke</a>
-
+            <a href="{{route('clanska_iskaznica.pocetna',$videoteka)}}" aria-current="page" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Početna stranica videoteke {{ $naziv  }}</a>
+                               <a href="{{route('clan.pocetna',$videoteka)}}" aria-current="page" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Početna stranica članova za videoteku {{ $naziv }}</a>
     </div>
   </el-disclosure>
 

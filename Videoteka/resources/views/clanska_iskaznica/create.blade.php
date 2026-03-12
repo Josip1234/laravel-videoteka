@@ -29,7 +29,7 @@
            <label for="oib_clana" class="block text-gray-300 mb-2 text-sm font-medium">Odaberi člana za upis</label>
            <select name="oib_clana" id="oib_clana" class="w-full px-4 py-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200">
             <option value="-1">Odaberi</option>
-            @foreach ($clanovi as $clan)
+            @foreach ($popisCl as $clan)
             <option value=" {{ $clan["oib"] }}" @selected(old("oib_clana"))> {{ $clan["ime"]." ".$clan["prezime"] }}</option>
           @endforeach
            </select>

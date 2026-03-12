@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClanController;
 use App\Http\Controllers\ClanskaIskaznicaController;
 use App\Http\Controllers\VideotekaController;
 use Illuminate\Support\Facades\Route;
@@ -24,4 +25,9 @@ Route::prefix('clanska_iskaznica')->name('clanska_iskaznica.')->controller(Clans
     Route::get('{videoteka}/{clanska_iskaznica}/edit','azuriranje')->name('azuriraj'); 
     Route::put('{videoteka}/{clanska_iskaznica}/update','azuriraj')->name('azuriranje');
     Route::delete('{videoteka}/{clanska_iskaznica}/delete','izbrisi_clana')->name('ispisivanje');
+});
+//ovo su grupe ruta za podatke od članova ne treba nam ovo trebam samo popis detalja nemamo crud ovdje 
+//korisnike ćemo ubacivati preko seedera
+Route::prefix('clan')->name('clan.')->controller(ClanController::class)->group(function(){
+    Route::get('{videoteka}/{clanska_iskaznica}/detalji','detalji')->name('detalji');
 });

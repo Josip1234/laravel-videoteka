@@ -32,15 +32,13 @@ class ClanskaIskaznicaController extends Controller
         //query ispiši sve članove koji nisu jednaki tom oibu videoteke
         //SELECT c.oib FROM clanska_iskaznica cl right join clan c on cl.oib_clana=c.oib where cl.oib_videoteke != '14256985555' 
         //napomena: jedan oib jednog člana mora biti jedak jednom oibu videoteke 
-        //iako smo maknuli unique key za članove trebali bi osigurati da se ne može jednog člana upisati nanovo u istu videoteku
-        $clanovi=ClanskaIskaznica::rightjoin('clan','clanska_iskaznica.oib_clana','=','clan.oib')
-             ->select('clan.oib','clan.ime','clan.prezime')->where('oib_videoteke','!=',$videoteka->oib) 
-            ->get();
-            
+        //iako smo maknuli unique key za članove trebali bi osigurati da se ne može jednog člana upisati nanovo u istu videoteku 
+        //select * from clanska_iskaznica cl right join clan c on cl.oib_clana=c.oib where cl.oib_videoteke != '14256985555';
+        $popisSvihCLanova=Clan::orderBy("oib")->get();
         return view('clanska_iskaznica.create',[
             "videoteka"=>$videoteka,
             "naziv"=>$videoteka->naziv,
-            "clanovi"=>json_decode($clanovi,true)
+            "popisCl"=>$popisSvihCLanova
         ]);
     }
     public function spremi(Request $request,Videoteka $videoteka){
@@ -53,7 +51,7 @@ class ClanskaIskaznicaController extends Controller
             ClanskaIskaznica::create($validated);
             return redirect()->route("clanska_iskaznica.pocetna",$videoteka)->with('status','Novi član uspješno dodan.');
     }
-    public function azuriranje(Request $request, Videoteka $videoteka, ClanskaIskaznica $clanska_iskaznica){
+    public function azuriranje(Videoteka $videoteka, ClanskaIskaznica $clanska_iskaznica){
         return view("clanska_iskaznica.edit",[
             "naziv"=>$videoteka->naziv,
             "videoteka"=>$videoteka,
@@ -70,7 +68,7 @@ class ClanskaIskaznicaController extends Controller
         $clanska_iskaznica->update($validated);
         return redirect()->route("clanska_iskaznica.pocetna",$videoteka)->with('status','Član uspješno ažuriran');
     } 
-    public function izbrisi_clana(Request $request,Videoteka $videoteka,ClanskaIskaznica $clanska_iskaznica){
+    public function izbrisi_clana(Videoteka $videoteka,ClanskaIskaznica $clanska_iskaznica){
         $clanska_iskaznica->delete();
         return redirect()->route("clanska_iskaznica.pocetna",$videoteka)->with('status',"Korisnik uspješno iščlanjen iz videoteke.");
     }
