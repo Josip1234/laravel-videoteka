@@ -34,7 +34,10 @@ class ClanskaIskaznicaController extends Controller
         //napomena: jedan oib jednog člana mora biti jedak jednom oibu videoteke 
         //iako smo maknuli unique key za članove trebali bi osigurati da se ne može jednog člana upisati nanovo u istu videoteku 
         //select * from clanska_iskaznica cl right join clan c on cl.oib_clana=c.oib where cl.oib_videoteke != '14256985555';
-        $popisSvihCLanova=Clan::orderBy("oib")->get();
+        //select * from  clan c right join clanska_iskaznica ci on ci.oib_clana=c.oib where ci.oib_videoteke != '95529521181'
+        $popisSvihCLanova=Clan::rightjoin('clanska_iskaznica','clanska_iskaznica.oib_clana','clan.oib')
+        ->select('clan.oib','clan.ime','clan.prezime')->where('clanska_iskaznica.oib_videoteke','!=',$videoteka->oib)->orderBy('clan.oib')->get();
+
         return view('clanska_iskaznica.create',[
             "videoteka"=>$videoteka,
             "naziv"=>$videoteka->naziv,
