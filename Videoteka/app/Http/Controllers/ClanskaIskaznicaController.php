@@ -35,12 +35,33 @@ class ClanskaIskaznicaController extends Controller
         //iako smo maknuli unique key za članove trebali bi osigurati da se ne može jednog člana upisati nanovo u istu videoteku 
         //select * from clanska_iskaznica cl right join clan c on cl.oib_clana=c.oib where cl.oib_videoteke != '14256985555';
         //select * from  clan c right join clanska_iskaznica ci on ci.oib_clana=c.oib where ci.oib_videoteke != '95529521181'
-        $popisSvihCLanova=Clan::orderBy("oib")->get();
+        $popisUcl=Clan::leftjoin('clanska_iskaznica','clan.oib','=','clanska_iskaznica.oib_clana')-> 
+        select('clan.oib','clan.ime','clan.prezime')->
+        where('clan.oib','!=','clanska_iskaznica.oib_clana')
+        ->where('clanska_iskaznica.oib_videoteke','=',$videoteka->oib)
+        ->orderBy('clan.oib')->get(); 
+     
+        $popisSvihClanova=Clan::orderBy("clan.oib")->get();
+        //brisanje objekta ako je član videoteke već upisan
+        $popisUcl=json_decode($popisUcl,true);
+        
+        $popisSvihClanova=json_decode($popisSvihClanova,true);
 
+        //izbriši vrijednost iz popisa svih članova ako je oib identičan oibu u popisu učlanjenih
+        foreach ($popisSvihClanova as $kljuc => $clan) {
+             foreach ($popisUcl as $kljuc2 => $clan2) {
+                   if($clan["oib"]===$clan2["oib"]){
+                         unset($popisSvihClanova[$kljuc]);
+                   }
+            }
+        }
+        
+        
+       
         return view('clanska_iskaznica.create',[
             "videoteka"=>$videoteka,
             "naziv"=>$videoteka->naziv,
-            "popisCl"=>$popisSvihCLanova
+            "popisCl"=>$popisSvihClanova
         ]);
     }
     public function spremi(Request $request,Videoteka $videoteka){
@@ -50,6 +71,7 @@ class ClanskaIskaznicaController extends Controller
                 'oib_clana'=>['required','string','min:11','max:11','digits_between:11,11'],
                 'datum_uclanjenja'=>['required','date'],
             ]);
+
             ClanskaIskaznica::create($validated);
             return redirect()->route("clanska_iskaznica.pocetna",$videoteka)->with('status','Novi član uspješno dodan.');
     }
