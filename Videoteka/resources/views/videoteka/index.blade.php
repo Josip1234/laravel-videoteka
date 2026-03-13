@@ -36,7 +36,7 @@
             @foreach($videoteka as $vid)
 
             <tr class="hover:bg-gray-800/60 transition duration-200">
-              <td class=class="px-6 py-4 font-medium text-white">{{ $vid->oib }}</td>
+              <td class="px-6 py-4 font-medium text-white">{{ $vid->oib }}</td>
               <td class="px-6 py-4 font-medium text-white">{{ $vid->naziv }}</td>
               <td class="px-6 py-4 font-medium text-white">{{ $vid->adresa }}</td>
               <td class="px-6 py-4 font-medium text-white">

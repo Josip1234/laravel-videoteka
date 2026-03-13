@@ -23,4 +23,8 @@ class Clan extends Model
     public function clanskaIskaznica(){
         return $this->hasMany(ClanskaIskaznica::class);
     }
+
+    protected $casts = [
+        "datumRodjenja"=>"date"
+    ];
 }
