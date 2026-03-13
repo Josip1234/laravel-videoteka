@@ -26,7 +26,7 @@
                                 @method('delete')
                                 <button type="submit"  ><i class="bi bi-trash icon-delete"></i></button>
                              </form> 
-                             <a href=""><i class="bi bi-person-vcard"></i>
+                             <a href="{{ route('clan.detalji',[$videoteka,$clan]) }}"><i class="bi bi-person-vcard"></i>
 Detalji korisnika</a>
                         </td>
                         </tr>

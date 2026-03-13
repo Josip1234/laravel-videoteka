@@ -48,7 +48,7 @@
 
 
        
-                       <a href=""><i class="bi bi-person-vcard"></i>
+                       <a href="{{ route('clan.detalji',[$videoteka,$clanovi]) }}"><i class="bi bi-person-vcard"></i>
 Detalji korisnika</a>
         <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-lg transition duration-200 shadow-lg">Ažuriraj člana videoteke</button>
       </form>
