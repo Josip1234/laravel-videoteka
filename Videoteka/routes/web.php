@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClanController;
 use App\Http\Controllers\ClanskaIskaznicaController;
+use App\Http\Controllers\MedijController;
 use App\Http\Controllers\VideotekaController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,4 +31,13 @@ Route::prefix('clanska_iskaznica')->name('clanska_iskaznica.')->controller(Clans
 //korisnike ćemo ubacivati preko seedera
 Route::prefix('clan')->name('clan.')->controller(ClanController::class)->group(function(){
     Route::get('{videoteka}/{clanska_iskaznica}/detalji','detalji')->name('detalji');
+});
+//grupa ruta za medij
+Route::prefix('medij')->name('medij.')->controller(MedijController::class)->group(function(){
+    Route::get('index','index')->name('pocetna'); 
+    Route::get('create','create')->name('noviMedij');
+    Route::post('create','spremanje')->name('spremi');
+    Route::get('{medij}/edit','editForm')->name('uredi');
+    Route::put('{medij}/edit','azuriraj')->name('azuriraj');
+    Route::delete('{medij}/delete','izbrisi')->name('izbrisi');
 });
