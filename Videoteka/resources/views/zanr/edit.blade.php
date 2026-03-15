@@ -1,0 +1,7 @@
+@include('zanr.layouts.header')
+@include('zanr.layouts.main')
+@include('zanr.components.navigation')
+@yield('navigation')
+@include('zanr.forms.edit')
+@yield('edit')
+@include('zanr.layouts.footer')

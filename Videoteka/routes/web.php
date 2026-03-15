@@ -4,6 +4,7 @@ use App\Http\Controllers\ClanController;
 use App\Http\Controllers\ClanskaIskaznicaController;
 use App\Http\Controllers\MedijController;
 use App\Http\Controllers\VideotekaController;
+use App\Http\Controllers\ZanrController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -40,4 +41,13 @@ Route::prefix('medij')->name('medij.')->controller(MedijController::class)->grou
     Route::get('{medij}/edit','editForm')->name('uredi');
     Route::put('{medij}/edit','azuriraj')->name('azuriraj');
     Route::delete('{medij}/delete','izbrisi')->name('izbrisi');
+});
+//grupa ruta za žanr
+Route::prefix('zanr')->name('zanr.')->controller(ZanrController::class)->group(function(){
+    Route::get('index','index')->name('pocetna');
+    Route::get('create','create')->name('noviZanr');
+    Route::post('save','save')->name('spremi');
+    Route::get('{zanr}/edit','edit')->name('uredi');
+    Route::put('{zanr}/update','update')->name('azuriraj');
+    Route::delete('{zanr}/delete','delete')->name('brisanje');
 });
