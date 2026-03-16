@@ -4,6 +4,7 @@ use App\Http\Controllers\ClanController;
 use App\Http\Controllers\ClanskaIskaznicaController;
 use App\Http\Controllers\MedijController;
 use App\Http\Controllers\VideotekaController;
+use App\Http\Controllers\VrstaCjenikaController;
 use App\Http\Controllers\ZanrController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,4 +51,13 @@ Route::prefix('zanr')->name('zanr.')->controller(ZanrController::class)->group(f
     Route::get('{zanr}/edit','edit')->name('uredi');
     Route::put('{zanr}/update','update')->name('azuriraj');
     Route::delete('{zanr}/delete','delete')->name('brisanje');
+});
+//grupa ruta za entitet vrste cjenika
+Route::prefix('vrsta')->name('vrsta.')->controller(VrstaCjenikaController::class)->group(function(){
+    Route::get('index','getIndex')->name('pocetna');
+    Route::get('create','getCreateForm')->name('noviCjenik');
+    Route::post('save','save')->name('spremi');
+    Route::get('{vrsta}/edit','getEdit')->name('azuriranje');
+    Route::put('{vrsta}/update','update')->name('azuriraj');
+    Route::delete('{vrsta}/delete','delete')->name('izbrisi');
 });

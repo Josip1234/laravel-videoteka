@@ -14,6 +14,8 @@
                             class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Dostupni mediji</a>
                            <a href="{{ route('zanr.pocetna') }}" aria-current="page"
                             class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Žanrovi</a>
+                              <a href="{{ route('vrsta.pocetna') }}" aria-current="page"
+                            class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Vrsta cijenika</a>
 
 
                     </div>
@@ -32,7 +34,9 @@
                             class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Dostupni mediji</a>
                            <a href="{{ route('zanr.pocetna') }}" aria-current="page"
                             class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Žanrovi</a>
-
+                                  <a href="{{ route('vrsta.pocetna') }}" aria-current="page"
+                            class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Vrsta cijenika</a>
+                            
 
         </div>
     </el-disclosure>

@@ -1,0 +1,7 @@
+@include('vrsta.layouts.header')
+@include('vrsta.layouts.main')
+@include('vrsta.navigation.navigation')
+@yield('navigation')
+@include('vrsta.forms.edit')
+@yield('edit')
+@include('vrsta.layouts.footer')
