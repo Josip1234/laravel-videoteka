@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClanController;
 use App\Http\Controllers\ClanskaIskaznicaController;
+use App\Http\Controllers\FilmController;
 use App\Http\Controllers\MedijController;
 use App\Http\Controllers\VideotekaController;
 use App\Http\Controllers\VrstaCjenikaController;
@@ -60,4 +61,10 @@ Route::prefix('vrsta')->name('vrsta.')->controller(VrstaCjenikaController::class
     Route::get('{vrsta}/edit','getEdit')->name('azuriranje');
     Route::put('{vrsta}/update','update')->name('azuriraj');
     Route::delete('{vrsta}/delete','delete')->name('izbrisi');
+});
+//grupa ruta za film 
+Route::prefix('film')->name('film.')->controller(FilmController::class)->group(function(){
+    Route::get('index','index')->name('pocetna');
+    Route::get('create','getCreateForm')->name('noviFilm');
+    Route::post('save','saveData')->name('spremi');
 });

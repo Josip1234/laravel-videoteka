@@ -11,7 +11,7 @@ class Film extends Model
     protected $primaryKey = 'id_filma';
     protected $fillable = [
         "naziv",
-        "dostupne_kolicine",
+        "dostupneKolicine",
         "broj_medija",
         "broj_zanra"
     ];
@@ -21,4 +21,9 @@ class Film extends Model
     public function zanr(){
         return $this->hasMany(Zanr::class);
     }
+    protected $casts = [
+        "dostupneKolicine"=>'integer',
+        "broj_medija"=>'integer',
+        "broj_zanra"=>'integer'
+    ];
 }

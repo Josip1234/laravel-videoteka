@@ -13,6 +13,6 @@ class Zanr extends Model
     "naziv"
    ];
    public function film(){
-      return $this->belongsTo(Film::class);
+      return $this->belongsTo(Film::class,'broj_zanra');
    }
 }

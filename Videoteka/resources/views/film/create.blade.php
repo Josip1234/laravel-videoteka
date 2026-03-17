@@ -1,0 +1,7 @@
+@include('film.layouts.header')
+@include('film.layouts.main')
+@include('film.components.navigation')
+@yield('navigation')
+@include('film.forms.create')
+@yield('create')
+@include('film.layouts.footer')
