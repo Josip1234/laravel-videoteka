@@ -26,7 +26,11 @@
         <el-disclosure id="mobile-menu" hidden class="block sm:hidden">
         <div class="space-y-1 px-2 pt-2 pb-3">
                  
-                                  <a href="{{ route('videoteka.pocetna') }}" class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Početna stranica videoteke</a>
+                                              <a href="{{ route('videoteka.pocetna') }}" class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Početna stranica videoteke</a>
+                        
+                           <a href="{{ route('film.noviFilm') }}" class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Unos novog filma</a>
+
+                            <a href="{{ route('film.pocetna') }}" class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Svi filmovi</a>
 
 
 
