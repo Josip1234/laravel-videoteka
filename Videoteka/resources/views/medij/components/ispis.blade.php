@@ -16,11 +16,11 @@
         <tr class="hover:bg-gray-800/60 transition duration-200">
             <td class="px-6 py-4 font-medium text-white">{{ $md->broj_medija }}</td>
             <td class="px-6 py-4 font-medium text-white">{{ $md->naziv }}</td>
-            <td class="px-6 py-4 font-medium text-white"><a href="{{ route('medij.uredi',$md) }}">Uredi</a>
+            <td class="px-6 py-4 font-medium text-white"><a href="{{ route('medij.uredi',$md) }}"><i class="bi bi-pencil icon-edit"></i></a>
               <form action="{{ route('medij.izbrisi',$md) }}" method="post" onsubmit="return confirm('Želite li obrisati medij?')">
                 @csrf
                 @method('delete')
-                <input type="submit" value="Brisanje medija">
+                <button type="submit"><i class="bi bi-trash icon-delete"></i></button>
             </form>
             </td>
            
