@@ -42,11 +42,35 @@ class FilmController extends Controller
     public function saveData(Request $request){
             $validated=$request->validate([
                     "naziv"=>['required','max:50'],
-                    "dostupneKolicine"=>['required','integer','min:1','max:11'],
+                    "dostupneKolicine"=>['required','integer','min:1','max:50'],
                     "broj_medija"=>['required','integer'],
                     "broj_zanra"=>['required','integer'],
             ]);
             Film::create($validated);
             return redirect()->route("film.pocetna")->with('status',"Dodan novi film");
+    }
+    public function dohvatiFormuZaEdit(Film $film){
+          //trebam listu žanrova za select choice žanr
+        $zanr=Zanr::orderBy('broj_zanra')->get();
+        //trebam listu medija za select choice medija
+        $medij=Medij::orderBy('broj_medija')->get();
+        return view("film.edit",
+        ["film"=>$film,
+        "zanr"=>$zanr,
+        "medij"=>$medij]);
+    }
+    public function azuriraj(Request $request, Film $film){
+       $validated=$request->validate([
+             "naziv"=>['required','max:50'],
+                    "dostupneKolicine"=>['required','integer','min:1','max:50'],
+                    "broj_medija"=>['required','integer'],
+                    "broj_zanra"=>['required','integer'],
+       ]);
+       $film->update($validated);
+       return redirect()->route("film.pocetna")->with('status',"Film uspješno ažuriran.");
+    }
+    public function delete(Film $film){
+        $film->delete();
+        return redirect()->route("film.pocetna")->with('status',"Film uspješno izbrisan.");
     }
 }

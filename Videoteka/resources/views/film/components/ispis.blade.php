@@ -22,11 +22,11 @@
                 <td>{{ $film->dostupneKolicine }}</td>
                 <td>{{ $film->nm }}</td>
                 <td>{{ $film->nz }}</td>
-                <td><a href="">Uredi</a>
-                <form action="" method="post" onsubmit="return confirm('Obrisati film?');">
+                <td><a href="{{ route('film.edit',$film) }}"><i class="bi bi-pencil icon-edit"></i></a>
+                <form action="{{ route('film.obrisi',$film) }}" method="post" onsubmit="return confirm('Obrisati film?');">
                     @csrf
                     @method('delete')
-                    <input type="button" value="Obriši">
+                    <button type="submit"><i class="bi bi-trash icon-delete"></i></button>
                 </form>
                 </td>
             </tr>

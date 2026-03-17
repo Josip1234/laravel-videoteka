@@ -67,4 +67,7 @@ Route::prefix('film')->name('film.')->controller(FilmController::class)->group(f
     Route::get('index','index')->name('pocetna');
     Route::get('create','getCreateForm')->name('noviFilm');
     Route::post('save','saveData')->name('spremi');
+    Route::get('{film}/edit','dohvatiFormuZaEdit')->name('edit');
+    Route::put('{film}/update','azuriraj')->name('azuriraj');
+    Route::delete('{film}/delete','delete')->name('obrisi');
 });
