@@ -12,4 +12,7 @@ class Medij extends Model
     protected $fillable = [
         "naziv"
     ];
+    public function film(){
+        return $this->belongsTo(Film::class);
+    }
 }
