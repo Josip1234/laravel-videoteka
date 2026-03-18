@@ -58,4 +58,18 @@ class CjenikController extends Controller
             "videoteka"=>$videoteka
         ]);
     }
+    public function update(Request $request,Cjenik $cjenik){
+        $validated=$request->validate([
+                  "id_filma"=>['required','integer'],
+                "oib_videoteke"=>['required','digits_between:11,11'],
+                "cijena_filma"=>['required','numeric'],
+                "id_vrste_cjenika"=>['required','integer']
+        ]);
+        $cjenik->update($validated);
+        return redirect()->route("cjenik.pocetna")->with('status','Cjenik uspješno ažuriran.');
+    }
+    public function delete(Cjenik $cjenik){
+        $cjenik->delete();
+        return redirect()->route("cjenik.pocetna")->with('status',"Cjenik uspješno izbrisan");
+    }
 }

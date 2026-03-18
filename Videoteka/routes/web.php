@@ -78,4 +78,6 @@ Route::prefix('cjenik')->name('cjenik.')->controller(CjenikController::class)->g
     Route::get('{videoteka}/create','getCreateForm')->name('noviCjenik');
     Route::post('/save','saveData')->name("spremi");
     Route::get('{videoteka}/{cjenik}/edit','edit')->name("azuriraj");
+    Route::put('{cjenik}/update','update')->name('update');
+    Route::delete('{cjenik}/delete','delete')->name('brisanje');
 });

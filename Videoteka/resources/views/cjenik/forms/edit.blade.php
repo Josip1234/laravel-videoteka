@@ -3,9 +3,9 @@
       <h2 class="text-2xl font-bold text-white mb-6 text-center">Ažuriranje cijenika</h2>
     </div>
      <div class="flex items-center justify-center">
-<form action="" method="post" class="space-y-5">
+<form action="{{ route('cjenik.update',$cjenik) }}" method="post" class="space-y-5">
     @csrf
-
+    @method('put')
   <label for="id_filma" class="block text-gray-300 mb-2 text-sm font-medium">Odaberi film:</label>
     <select name="id_filma" id="id_filma" class="w-full px-4 py-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200">
         @foreach ($filmovi as $film)

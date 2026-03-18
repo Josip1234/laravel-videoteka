@@ -34,7 +34,7 @@
                             
                             <a href="{{ route('cjenik.azuriraj',[$cj->oib_videoteke,$cj]) }}"><i class="bi bi-pencil-square"></i>
 </a>
-                             <form action="" method="post" onsubmit="return confirm('Obrisati cjenik?');">
+                             <form action="{{ route('cjenik.brisanje',$cj) }}" method="post" onsubmit="return confirm('Obrisati cjenik?');">
                                 @csrf
                                 @method('delete')
                                 <button type="submit"  ><i class="bi bi-trash icon-delete"></i></button>
