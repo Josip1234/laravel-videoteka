@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CjenikController;
 use App\Http\Controllers\ClanController;
 use App\Http\Controllers\ClanskaIskaznicaController;
 use App\Http\Controllers\FilmController;
@@ -70,4 +71,11 @@ Route::prefix('film')->name('film.')->controller(FilmController::class)->group(f
     Route::get('{film}/edit','dohvatiFormuZaEdit')->name('edit');
     Route::put('{film}/update','azuriraj')->name('azuriraj');
     Route::delete('{film}/delete','delete')->name('obrisi');
+});
+//grupa ruta za cjenik
+Route::prefix('cjenik')->name('cjenik.')->controller(CjenikController::class)->group(function(){
+    Route::get('index','index')->name('pocetna');
+    Route::get('{videoteka}/create','getCreateForm')->name('noviCjenik');
+    Route::post('/save','saveData')->name("spremi");
+    Route::get('{videoteka}/{clan}/edit','edit')->name("azuriraj");
 });

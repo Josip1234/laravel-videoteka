@@ -26,4 +26,7 @@ class Film extends Model
         "broj_medija"=>'integer',
         "broj_zanra"=>'integer'
     ];
+    public function cjenik(){
+        return $this->belongsTo(Cjenik::class,"id_filma");
+    }
 }

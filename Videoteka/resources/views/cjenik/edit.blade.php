@@ -1,0 +1,7 @@
+@include('cjenik.layouts.header')
+@include('cjenik.layouts.main')
+@include('cjenik.components.navigation')
+@yield('navigation')
+@include('cjenik.forms.edit')
+@yield('edit')
+@include('cjenik.layouts.footer')

@@ -26,4 +26,7 @@ class Videoteka extends Model
    public function clanske_iskaznice(){
         return $this->hasMany(ClanskaIskaznica::class);
    }
+   public function cjenik(){
+    return $this->hasMany("cjenik","oib");
+   }
 }

@@ -18,6 +18,8 @@
                             class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Vrsta cijenika</a>
                                    <a href="{{ route('film.pocetna') }}" aria-current="page"
                             class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Filmovi</a>
+                                         <a href="{{ route('cjenik.pocetna') }}" aria-current="page"
+                            class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Cjenik filmova</a>
                     </div>
                 </div>
             </div>
@@ -38,6 +40,8 @@
                             class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Vrsta cijenika</a>
                                    <a href="{{ route('film.pocetna') }}" aria-current="page"
                             class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Filmovi</a>
+                               <a href="{{ route('cjenik.pocetna') }}" aria-current="page"
+                            class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Cjenik filmova</a>
 
         </div>
     </el-disclosure>

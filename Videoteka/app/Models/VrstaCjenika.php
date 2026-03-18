@@ -13,4 +13,7 @@ class VrstaCjenika extends Model
         "naziv",
         "opis"
     ];
+    public function vrsta_cjenika(){
+        return $this->belongsTo(Cjenik::class,"id_vrste_cjenika");
+    }
 }
