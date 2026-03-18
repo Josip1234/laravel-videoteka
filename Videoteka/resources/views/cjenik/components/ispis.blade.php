@@ -33,7 +33,7 @@
                             </a>
                             
                             <a href="{{ route('cjenik.azuriraj',[$cj->oib_videoteke,$cj]) }}"><i class="bi bi-pencil-square"></i>
-</a></a>
+</a>
                              <form action="" method="post" onsubmit="return confirm('Obrisati cjenik?');">
                                 @csrf
                                 @method('delete')

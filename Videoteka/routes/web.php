@@ -77,5 +77,5 @@ Route::prefix('cjenik')->name('cjenik.')->controller(CjenikController::class)->g
     Route::get('index','index')->name('pocetna');
     Route::get('{videoteka}/create','getCreateForm')->name('noviCjenik');
     Route::post('/save','saveData')->name("spremi");
-    Route::get('{videoteka}/{clan}/edit','edit')->name("azuriraj");
+    Route::get('{videoteka}/{cjenik}/edit','edit')->name("azuriraj");
 });
