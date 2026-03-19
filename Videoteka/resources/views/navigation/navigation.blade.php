@@ -20,6 +20,8 @@
                             class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Filmovi</a>
                                          <a href="{{ route('cjenik.pocetna') }}" aria-current="page"
                             class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Cjenik filmova</a>
+                                  <a href="{{ route('popis_posudjenih.pocetna') }}" aria-current="page"
+                            class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Popis posuđenih filmova</a>
                     </div>
                 </div>
             </div>
@@ -42,6 +44,8 @@
                             class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Filmovi</a>
                                <a href="{{ route('cjenik.pocetna') }}" aria-current="page"
                             class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Cjenik filmova</a>
+                                    <a href="{{ route('popis_posudjenih.pocetna') }}" aria-current="page"
+                            class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Popis posuđenih filmova</a>
 
         </div>
     </el-disclosure>

@@ -42,6 +42,7 @@
               <td class="px-6 py-4 font-medium text-white">
                 <a href="{{ route('clanska_iskaznica.pocetna',$vid) }}"><i class="bi bi-link"></i></a>
                 <a href="{{route('videoteka.uredi',$vid)}}"><i class="bi bi-pencil icon-edit"></i></a>
+                 <a href="{{route('cjenik.noviCjenik',$vid)}}">   <i class="bi bi-plus-square">Novi cjenik</i></a>
                 <form method="POST" action="{{ route('videoteka.brisanje',$vid) }}"
                   onsubmit="return confirm('Obrisati videoteku?');">
                   @csrf

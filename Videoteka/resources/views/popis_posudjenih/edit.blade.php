@@ -1,0 +1,7 @@
+@include('popis_posudjenih.layouts.header')
+@include('popis_posudjenih.layouts.main')
+@include('popis_posudjenih.components.navigation')
+@yield('navigation')
+@include('popis_posudjenih.forms.edit')
+@yield('edit')
+@include('popis_posudjenih.layouts.footer')

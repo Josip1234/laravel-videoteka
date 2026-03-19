@@ -11,15 +11,11 @@
                         <a href="{{ route('videoteka.pocetna') }}" aria-current="page"
                             class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Početna stranica
                             videoteke</a>
-
-                        
-                        <a href="{{ route('cjenik.pocetna') }}" aria-current="page"
+                           <a href="{{ route('popis_posudjenih.pocetna') }}" aria-current="page"
                             class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Početna stranica
-                            cjenika</a>
-
-                              <a href="{{ route('vrsta.noviCjenik') }}" aria-current="page"
-                            class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Nova vrsta cjenika</a>
-
+                            popisa</a>
+                              <a href="{{ route('popis_posudjenih.novi') }}" aria-current="page"
+                            class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Unos novog popisa</a>
                     </div>
                 </div>
             </div>
@@ -32,13 +28,11 @@
               <a href="{{ route('videoteka.pocetna') }}" aria-current="page"
                             class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Početna stranica
                             videoteke</a>
-
-                               
-                        <a href="{{ route('cjenik.pocetna') }}" aria-current="page"
+                 <a href="{{ route('popis_posudjenih.pocetna') }}" aria-current="page"
                             class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Početna stranica
-                            cjenika</a>
+                            popisa</a>
+
         </div>
     </el-disclosure>
 </nav>
-
 @endsection

@@ -26,7 +26,7 @@ class PopisController extends Controller
     //spremanje popisa
     public function store(Request $request){
         $validated=$request->validate([
-            'datum_posudbe'=>['required','date','after:today'],
+            'datum_posudbe'=>['required','date','after:yesterday'],
             'datum_vracanja'=>['required','date'],
             'id_filma'=>['required','integer']
         ]);
@@ -44,7 +44,7 @@ class PopisController extends Controller
     //spremanje podataka 
     public function update(Request $request, PopisPosudjenih $popis){
         $validated=$request->validate([
-                 'datum_posudbe'=>['required','date','after:today'],
+                 'datum_posudbe'=>['required','date','after:yesterday'],
             'datum_vracanja'=>['required','date'],
             'id_filma'=>['required','integer']
         ]);
