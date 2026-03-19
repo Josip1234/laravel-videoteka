@@ -29,4 +29,8 @@ class Film extends Model
     public function cjenik(){
         return $this->belongsTo(Cjenik::class,"id_filma");
     }
+    //jedan film pripada jednom popisu
+    public function popisposudjenih(){
+        return $this->belongsTo(PopisPosudjenih::class,'id_filma');
+    }
 }
