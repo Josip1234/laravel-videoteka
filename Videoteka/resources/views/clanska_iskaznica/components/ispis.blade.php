@@ -20,7 +20,7 @@
                         <td class="px-6 py-4 font-medium text-white">{{ $clan->datum_uclanjenja->format("d.m.Y") }}</td>
                         <td class="px-6 py-4 font-medium text-white">
                             <a href="{{ route('clanska_iskaznica.azuriraj',[$videoteka,$clan]) }}"><i class="bi bi-person"><i class="bi bi-pencil-square"></i></i>
-</a></a>
+</a>
                              <form action="{{ route("clanska_iskaznica.ispisivanje",[$videoteka,$clan]) }}" method="post" onsubmit="return confirm('Ispisati člana?');">
                                 @csrf
                                 @method('delete')
@@ -28,6 +28,7 @@
                              </form> 
                              <a href="{{ route('clan.detalji',[$videoteka,$clan]) }}"><i class="bi bi-person-vcard"></i>
 Detalji korisnika</a>
+                        <a href="{{ route('posudba.pocetna',$clan) }}">Posudba</a>
                         </td>
                         </tr>
                     @endforeach

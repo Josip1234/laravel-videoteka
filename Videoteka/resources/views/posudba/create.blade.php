@@ -1,0 +1,7 @@
+@include('posudba.layouts.header')
+@include('posudba.layouts.main')
+@include('posudba.components.navigation')
+@yield('navigation')
+@include('posudba.forms.create')
+@yield('create')
+@include('posudba.layouts.footer')

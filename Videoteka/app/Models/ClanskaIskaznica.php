@@ -28,5 +28,9 @@ class ClanskaIskaznica extends Model
     //jedna članska iskaznica treba pripadati jednom članu u jednoj videoteci
     public function clan(){
         return $this->belongsTo(Clan::class);
+    } 
+    //članska iskaznica može imati više posudbi 
+    public function posudba(){
+        return $this->hasMany(Posudba::class,"broj_posudbe");
     }
 }

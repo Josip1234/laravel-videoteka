@@ -6,6 +6,7 @@ use App\Http\Controllers\ClanskaIskaznicaController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\MedijController;
 use App\Http\Controllers\PopisController;
+use App\Http\Controllers\PosudbaController;
 use App\Http\Controllers\VideotekaController;
 use App\Http\Controllers\VrstaCjenikaController;
 use App\Http\Controllers\ZanrController;
@@ -90,4 +91,10 @@ Route::prefix('popis_posudjenih')->name('popis_posudjenih.')->controller(PopisCo
     Route::get('{popis}/edit','edit')->name('azuriranje');
     Route::put('{popis}/update','update')->name('azuriraj');
     Route::delete('{popis}/delete','delete')->name('obrisi');
+});
+//grupa ruta za posudbe
+Route::prefix("posudba")->name("posudba.")->controller(PosudbaController::class)->group(function(){
+    Route::get('{clanska_iskaznica}/index','index')->name('pocetna');
+    Route::get('{clanska_iskaznica}/create','create')->name('novi');
+    Route::post('{clanska_iskaznica}/store','store')->name('spremi');
 });

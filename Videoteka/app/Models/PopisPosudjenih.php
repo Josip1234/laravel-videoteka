@@ -22,4 +22,8 @@ class PopisPosudjenih extends Model
     public function film(){
         return $this->hasMany(Film::class,'id_filma');
     }
+    //jedan popis može biti u više posudbi
+    public function posudba(){
+        return $this->hasMany(Posudba::class,"brojPopisa");
+    }
 }
