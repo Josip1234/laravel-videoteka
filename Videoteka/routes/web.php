@@ -5,6 +5,7 @@ use App\Http\Controllers\ClanController;
 use App\Http\Controllers\ClanskaIskaznicaController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\MedijController;
+use App\Http\Controllers\PopisController;
 use App\Http\Controllers\VideotekaController;
 use App\Http\Controllers\VrstaCjenikaController;
 use App\Http\Controllers\ZanrController;
@@ -80,4 +81,13 @@ Route::prefix('cjenik')->name('cjenik.')->controller(CjenikController::class)->g
     Route::get('{videoteka}/{cjenik}/edit','edit')->name("azuriraj");
     Route::put('{cjenik}/update','update')->name('update');
     Route::delete('{cjenik}/delete','delete')->name('brisanje');
+});
+//grupa ruta za popis
+Route::prefix('popis_posudjenih')->name('popis_posudjenih.')->controller(PopisController::class)->group(function(){
+    Route::get('index','index')->name('pocetna');
+    Route::get('create','create')->name('novi');
+    Route::post('store','store')->name('spremi');
+    Route::get('{popis}/edit','edit')->name('azuriranje');
+    Route::put('{popis}/update','update')->name('azuriraj');
+    Route::delete('{popis}/delete','delete')->name('obrisi');
 });
