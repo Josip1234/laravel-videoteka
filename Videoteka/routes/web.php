@@ -97,4 +97,7 @@ Route::prefix("posudba")->name("posudba.")->controller(PosudbaController::class)
     Route::get('{clanska_iskaznica}/index','index')->name('pocetna');
     Route::get('{clanska_iskaznica}/create','create')->name('novi');
     Route::post('{clanska_iskaznica}/store','store')->name('spremi');
+    Route::delete('{clanska_iskaznica}/{posudba}/delete','delete')->name('obrisi');
+    Route::get('{clanska_iskaznica}/{posudba}/edit','edit')->name('azuriranje');
+     Route::put('{clanska_iskaznica}/{posudba}/update','update')->name('azuriraj');
 });

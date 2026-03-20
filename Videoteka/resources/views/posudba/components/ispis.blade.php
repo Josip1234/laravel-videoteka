@@ -23,7 +23,15 @@
                                     {{ $posudba->popisposudjenih->datum_posudbe->format('d.m.Y') }}</td>
                                 <td class="px-6 py-4 font-medium text-white">
                                     {{ $posudba->popisposudjenih->datum_vracanja->format('d.m.Y') }}</td>
-                                <td class="px-6 py-4 font-medium text-white"><a href="{{ route('posudba.novi',$clanska_iskaznica) }}">Nova posudba</a></td>
+                                <td class="px-6 py-4 font-medium text-white"><a href="{{ route('posudba.novi',$clanska_iskaznica) }}">Nova posudba</a>
+                                <form action="{{ route('posudba.obrisi',[$clanska_iskaznica,$posudba]) }}" method="post"
+                                onsubmit="return confirm('Obrisati posudbu?')">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit"><i class="bi bi-trash icon-delete"></i></button>
+                            </form>
+                                 <a href="{{ route('posudba.azuriranje',[$clanska_iskaznica,$posudba]) }}"><i class="bi bi-pencil-square"></i></a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
